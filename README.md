@@ -1,4 +1,4 @@
-*This work has been sponsored by [Sythe Labs](https://sythelabs.com)*
+*This work has been sponsored by [Sythe Labs](https://sythelabs.com)*.
 
 # Tomcat
 🐱 Some tomcat scripts
