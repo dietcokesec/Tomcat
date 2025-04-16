@@ -1,3 +1,6 @@
+import os
+from typing import List
+
 import requests
 from rich import print
 from rich.progress import track
@@ -13,6 +16,21 @@ def print_request(req: requests.PreparedRequest):
         f"{''.join(f'{k}: {v}\r\n' for k, v in req.headers.items())}\r\n"
         f"{req.body}"
     )
+
+
+def read_wordlist(wordlist: str) -> List[str]:
+    # Someone did a comma-separated input
+    words = []
+    if "," in wordlist:
+        words = wordlist.split(",")
+    else:
+        if not os.path.isfile(wordlist):
+            raise ValueError(
+                f"Provided wordlist '{wordlist}' is not a file or comma-separated input"
+            )
+        words = open(wordlist).readlines()
+
+    return list(map(lambda x: x.strip(), words))
 
 
 @app.command()
@@ -47,24 +65,10 @@ def brute(
     ] = False,
 ):
     # Get the stripped list of usernames
-    usernames = list(
-        map(
-            lambda x: x.strip(),
-            usernames.split(",")
-            if "," in usernames
-            else open(usernames).readlines(),
-        )
-    )
+    usernames = read_wordlist(usernames)
 
     # Get the stripped list of passwords
-    passwords = list(
-        map(
-            lambda x: x.strip(),
-            passwords.split(",")
-            if "," in passwords
-            else open(passwords).readlines(),
-        )
-    )
+    passwords = read_wordlist(passwords)
 
     # Get the combined url
     full_url = url + path
@@ -85,7 +89,7 @@ def brute(
 
             if r.status_code == 200:
                 print(f"[green]{u}:{p} Authenticated successfully")
-                break
+                exit(0)
     else:
         print("[red]Failed to find working credentials.")
 
