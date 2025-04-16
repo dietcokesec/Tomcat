@@ -61,7 +61,7 @@ def brute(
         bool, Option("--verbose", "-v", help="Show passed and failed inputs.")
     ] = False,
     debug: Annotated[
-        bool, Option("--debug", "-v", help="Show the HTTP request being made")
+        bool, Option("--debug", "-d", help="Show the HTTP request being made")
     ] = False,
 ):
     # Get the stripped list of usernames
