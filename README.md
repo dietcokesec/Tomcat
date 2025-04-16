@@ -1,7 +1,7 @@
 *This work has been sponsored by [Sythe Labs](https://sythelabs.com)*.
 
 # Tomcat
-🐱 Some tomcat scripts
+🐱 Some tomcat scripts. Built to be cleaner and easier to use and a bit more configurable for things like debugging.
 
 ## Usage
 ```
@@ -53,3 +53,6 @@ uv run main.py -U <url>:8180/ -P /manager -u tomcat, -p /path/to/pws.txt
 ```bash
 uv run main.py -U <url>:8180/ -P /manager -u /path/to/wordlist -p /path/to/pws
 ```
+
+### Credits:
+- [mgr_brute](https://github.com/b33lz3bub-1/Tomcat-Manager-Bruteforce/blob/master/mgr_brute.py) - Basis for the brute force script.
