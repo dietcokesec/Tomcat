@@ -47,9 +47,9 @@
 ## Examples
 If you only have one username or password, make sure you end it with `,`.
 ```bash
-uv run main.py -U <url>:8180/ -P /manager -u tomcat, -p /usr/share/metasploit-framework/data/wordlists/tomcat_mgr_default_pass.txt
+uv run main.py -U <url>:8180/ -P /manager -u tomcat, -p /path/to/pws.txt
 ```
 
 ```bash
-uv run main.py -U <url>:8180/ -P /manager -u /path/to/wordlist -p /usr/share/metasploit-framework/data/wordlists/tomcat_mgr_default_pass.txt
+uv run main.py -U <url>:8180/ -P /manager -u /path/to/wordlist -p /path/to/pws
 ```
