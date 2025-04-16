@@ -74,7 +74,7 @@ def brute(
     full_url = url + path
 
     print(
-        f"[green] Attacking with[/green] {len(usernames) * len(passwords)} [green]combinations"
+        f"[green]Attacking with[/green] {len(usernames) * len(passwords)} [green]combinations"
     )
 
     for u in track(usernames):
